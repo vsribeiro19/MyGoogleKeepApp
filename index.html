@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="GoogleKeep" lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="../angular/angular.js"></script>
+    <title>My Google Keep</title>
+</head>
+
+<body ng-controller="GoogleKeepCtrl">
+    <div class="container">
+        <div class="cardNote">
+            <input class="inptTitle" ng-model="titulo" type="text" placeholder="Titulo" contenteditable="true">
+            <input class="inptNote" ng-model="descricao" type="text" aria-multiline="true"
+                placeholder="Criar uma nota..." contenteditable="true">
+            <div class="card_buttons">
+                <button class="button button-save" ng-click="create(titulo, descricao)">Salvar</button>
+                <button class="button button-close" ng-click="btnClose()">Fechar</button>
+            </div>
+        </div>
+
+        <div class="newNote" ng-show="create">
+            <div class="titleNote" ng-model="titulo">
+                <h2>{{titulo}}</h2>
+            </div>
+            <div class="bodyNote" ng-model="descricao">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        angular.module("GoogleKeep", [])
+            .controller("GoogleKeepCtrl", function ($scope) {
+                let cardNote = document.querySelector(".cardNote");
+                cardNote.onclick = function () {
+                    cardNote.classList.toggle("active")
+                }
+
+                $scope.create = function (titulo, descricao) {
+                    let data = {
+                        titulo: titulo,
+                        descricao: descricao
+                    };
+
+                    $scope.titulo = "";
+                    $scope.descricao = "";
+                    console.log(data);
+                }
+
+                $scope.listar = function () {
+                    $scope.nota = {};
+                    nota = $scope.data;
+                }
+
+            });
+    </script>
+</body>
+
+</html>

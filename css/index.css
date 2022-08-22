@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.cardNote {
+  width: 500px;
+  height: 50px;
+  border: 1px solid #414141;
+  box-shadow: 2px 3px 5px #bdbdbd;
+  border-radius: 7px;
+  border: 1px solid #bdbdbd;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.inptTitle,
+.inptNote {
+  border: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.inptNote{
+    opacity: 0;
+}
+
+.card_buttons{
+    opacity: 0;
+}
+
+.cardNote.active {
+  height: 200px;
+}
+
+.cardNote.active .inptNote{
+    opacity: 1;
+}
+
+.cardNote.active .card_buttons{
+    opacity: 1;
+}
+.card_buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.card_buttons .button{
+    width: 100px;
+    height: 30px;
+}
+
+.card_buttons .button-save{
+    background-color: #0222b3;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+}
+
+.card_buttons .button-close{
+    color: #242424;
+    cursor: pointer;
+    background-color: transparent;
+    outline: none;
+    border: transparent;
+}
+
+.card_buttons .button-close:hover{
+    background-color: #f0eeee;
+}
+
+.newNote{
+    width: 300px;
+    height: auto;
+    background-color: orange;
+}
+
+
